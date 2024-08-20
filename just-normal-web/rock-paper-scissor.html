@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Rock Paper Scissors
+    </title>
+  </head>
+
+  <body>
+    <img scr="images/rock-emoji.png">
+    <p>
+      Rock Paper Scissors <br>
+    </p>
+    <button onclick="
+      decideWinner(0) ;
+      printScore() ;
+    "> Rock </button>
+    <button onclick="
+      decideWinner(1) ;
+      printScore() ;
+    "> Paper </button>
+    <button onclick="
+      decideWinner(2) ;
+      printScore() ;
+    "> Scissors </button> <br><br>
+    <button onclick="
+      reset() ;
+      printScore() ;
+    ">
+      Reset
+    </button>
+    <script>
+      let updateScore = {
+        win : 0 ,
+        lose : 0 ,
+        draw : 0 ,
+      } ;
+      function whatMove(move) {
+        if (move === 0) return 'Rock' ;
+        if (move === 1) return 'Paper' ;
+        if (move === 2) return 'Scissors' ;
+      }
+      function checkResult(playerMove , computerMove) {
+        if (playerMove === computerMove) {
+          console.log("Draw") ;
+          updateScore.draw += 1 ;
+        }
+        if ((playerMove === 1 && computerMove === 0) || 
+            (playerMove === 2 && computerMove === 1) ||
+            (playerMove === 0 && computerMove === 2)) {
+          console.log("You win") ;
+          updateScore.win += 1 ;
+        }
+        if ((playerMove === 0 && computerMove === 1) || 
+            (playerMove === 1 && computerMove === 2) ||
+            (playerMove === 2 && computerMove === 0)) {
+          console.log("You lose") ;
+          updateScore.lose += 1 ;
+        }
+      }
+      function decideWinner(playerMove) {
+        let computerMove = Math.random() ;
+        computerMove = Math.round(computerMove * 10) % 3 ;
+        console.log(`You choose : ${whatMove(playerMove)}\nComputer choose : ${whatMove(computerMove)}\n`) ;
+        checkResult(playerMove , computerMove) ;
+      }
+      function printScore() {
+        console.log(`Wins : ${updateScore.win}\nDraws : ${updateScore.draw}\nLoses : ${updateScore.lose}`) ;
+      }
+      function reset() {
+        updateScore = {
+          win : 0 ,
+          lose : 0 ,
+          draw : 0 ,
+        } ;
+      }
+    </script>
+  </body>
+</html>

@@ -14,8 +14,93 @@
       Ấn để mua đồ lậu
     </button>
 
+    <p>
+      Bạn không biết tính ư, đừng lo đã có chúng tôi <br>
+      <button onclick="
+        makeCalc(1) ;
+      ">
+        1
+      </button>
+      <button onclick="
+        makeCalc(2) ;
+      ">
+        2
+      </button>
+      <button onclick="
+        makeCalc(3) ;
+      ">
+        3
+      </button>
+      <button onclick="
+        finalVal += valOnCalc ;
+      ">
+        +
+      </button> 
+      <button onclick="
+        finalVal *= valOnCalc ;
+      ">
+        *
+      </button> <br>
+      <button onclick="
+        makeCalc(4) ;
+      ">
+        4
+      </button>
+      <button onclick="
+        makeCalc(5) ;
+      ">
+        5
+      </button>
+      <button onclick="
+        makeCalc(6) ;
+      ">
+        6
+      </button>
+      <button onclick="
+        finalVal -= valOnCalc ;
+      ">
+        -
+      </button> 
+      <button onclick="
+        finalVal /= valOnCalc ;
+      ">
+        /
+      </button> <br>
+      <button onclick="
+        makeCalc(7) ;
+      ">
+        7
+      </button>
+      <button onclick="
+        makeCalc(8) ;
+      ">
+        8
+      </button>
+      <button onclick="
+        makeCalc(9) ;
+      ">
+        9
+      </button>
+      <button onclick="
+        console.log(alert(`Vậy là bạn đã mua ${finalVal} món`)) ;
+        valOnCalc = 0 ;
+        finalVal = 0 ;
+      ">
+        =
+      </button> <br>
+    </p>
+
     <script>
       let things = 0 ;
+      let valOnCalc = 0 ;
+      let finalVal = 0 ;
+
+      function makeCalc(val) {
+        valOnCalc = val ;
+        if (finalVal === 0) {
+          finalVal = valOnCalc ;
+        }
+      }
     </script>
   </body>
 </html>
